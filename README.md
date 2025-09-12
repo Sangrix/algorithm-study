@@ -1,1 +1,1 @@
-### Algorithmn study with python
+### Algorithm study with python
