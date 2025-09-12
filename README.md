@@ -1,1 +1,1 @@
-### algorithmn study with python repo
+### algorithmn study with python
