@@ -1,3 +1,5 @@
+# 노드는 화물 1칸으로 기억하면 됨
+
 class Node:
   def __init__(self, data):
     self.data = data
