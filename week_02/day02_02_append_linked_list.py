@@ -9,12 +9,13 @@ node = Node(5)
 print(node.data, node.next)
 
 # 맨 앞 칸만 LinkedList에 저장해 두는 것
-
+# Node(열차칸)들은 미리 만들어 두고, 첫번째 노드가 뭔지 설정
+# 이후에는 head부터 next를 통해 미리 만들어진 Node를 다음 순서인 것으로 연결시켜 주면 됨
 class LinkedList:
   def __init__(self, value):
     self.head = Node(value)
 
-  # LinkedList의 가장 끝에 있는 노드에 새로운 노드를 연결해줘
+  # LinkedList의 head 부터 넘어 가서 가장 끝에 있는 노드에 새로운 노드를 연결 해줘
   def append(self, value):
     cur = self.head
 
@@ -31,6 +32,7 @@ class LinkedList:
       print(cur.data)
       cur = cur.next
 
+  # LinkedList의 노드 index를 확인하는 함수
   def get_node(self,index):
     cur = self.head
     cur_index = 0
@@ -40,6 +42,7 @@ class LinkedList:
       cur_index += 1
 
     return cur
+
 
 linked_List = LinkedList(5)
 print(linked_List.head.data)

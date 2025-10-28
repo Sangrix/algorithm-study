@@ -69,6 +69,7 @@ class LinkedList:
     prev_node.next = new_node
     new_node.next = next_node
 
+
 linked_List = LinkedList(5)
 print(linked_List.head.data)
 

@@ -79,6 +79,8 @@ class LinkedList:
 
     prev_node = self.get_node(index - 1)
     index_node = self.get_node(index)
+    # prev idx next
+    # [7]->[5]->[6]->[12]->8
     prev_node.next = index_node.next
 
 
