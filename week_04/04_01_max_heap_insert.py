@@ -47,6 +47,7 @@ class MaxHeap:
   def insert(self, value):
     # 1. 원소를 맨 끝에 추가한다
     self.items.append(value)
+
     cur_index = len(self.items) - 1  # 가장 마지막 위치 인덱스
 
     # 2. 원소의 인덱스가 루트 노드(인덱스가 1)일 때까지 반복
