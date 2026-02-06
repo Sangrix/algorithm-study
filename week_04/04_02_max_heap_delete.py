@@ -17,9 +17,48 @@ class MaxHeap:
 
 # 1. root와 맨 끝의 위치를 바꾼다.
 # 2. 그리고 바뀐 root node를 자식과 비교한다
-  def delete(self):
+# 3. 그리고 자식들이 크다면, 둘 중 더 큰 자식과 위치를 바꾼다
+# 4. 이 과정을 바닥을 찍을 때까지 혹은 내가 자식보다는 클 때까지 반복
+# 5. 그리고 나서 1번의 root 노드를 반환
 
-    return 8  # 8 을 반환해야 합니다.
+  def delete(self):
+    #  0     1  2  3  4  5  6
+    # [None, 8, 6, 7, 2, 5, 4]
+    # -1번째 index하면 가장 뒤의 인덱스를 가리킴
+    self.items[1], self.items[-1] = self.items[-1], self.items[1]
+
+    #  0     1  2  3  4  5  6
+    # [None, 4, 6, 7, 2, 5, 8]
+    prev_max = self.items.pop() # 8
+    # [None, 4, 6, 7, 2, 5]
+
+    #        cur
+    #   0    1  2  3  4  5
+    # [None, 4, 6, 7, 2, 5]
+    cur_index = 1
+
+    #        m
+    #       cur l  r
+    #   0    1  2  3  4  5
+    # [None, 4, 6, 7, 2, 5]
+    while cur_index <= len(self.items) -1:
+      left_child_index = cur_index * 2
+      right_child_index = cur_index * 2 + 1
+      max_index = cur_index
+
+      if left_child_index <= len(self.items) - 1 and self.items[left_child_index] > self.items[max_index]:
+        max_index = left_child_index
+
+      if right_child_index <= len(self.items) - 1 and self.items[right_child_index] > self.items[max_index]:
+        max_index = right_child_index
+
+      if max_index == cur_index:
+        break
+
+      self.items[cur_index], self.items[max_index] = self.items[max_index], self.items[cur_index]
+      cur_index = max_index
+
+    return prev_max  # 8 을 반환해야 합니다.
 
 
 max_heap = MaxHeap()
